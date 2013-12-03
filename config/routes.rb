@@ -1,5 +1,16 @@
 MvhTealeafApp::Application.routes.draw do
-  resources :users
+  resources :users do
+    collection do
+      get 'search', to: 'users#search'      
+    end
+
+    member do
+      post 'highlight', to: 'users#highlight'
+    end
+  end
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
